@@ -1,4 +1,4 @@
-package com.story.demo;
+package com.story.demo.controller;
 
 import java.io.Writer;
 
@@ -18,19 +18,19 @@ import com.story.demo.services.GoodStoryServices;
 
 @Controller
 public class MyController {
+	
 //	Autowired GoodStoryService  
 	
 	@Autowired
 	GoodStoryServices services;
 	
 	
-	@RequestMapping("/")
-	public String myHome() {
-		return "index";
-	}
-	@RequestMapping("/story")
-	public String myStory() {
-		return "single-post";
+	
+	
+	
+	@RequestMapping("/writersignup")
+	public String writersignup() {
+		return "writersignup";
 	}
 	
 	
@@ -59,10 +59,44 @@ public class MyController {
 		
 	}
 	
-	@RequestMapping("/WriterDash")
-	public String writerdash() {
-		return "WriterDash";
+	
+	@RequestMapping("/writerlogin")
+	public String writerlogin() {
+		return "writerlogin";
 	}
+	
+	
+//	Writer login Mapping part 
+	@PostMapping("/WriterLogin")
+	public String writeLogin(String email,String password,HttpSession session) {
+		
+		if(services.checkEmailPass(email, password) == null) {
+			System.out.println("Login Un-Sucessfull..");
+			session.setAttribute("WriterSignUpmsg", "Please Provide Registered Email Id And Password");
+			return "redirect:/writerlogin";
+		}
+		else {
+			System.out.println("Login Sucessfull..");
+			WriterModel obj = services.checkEmailPass(email, password);
+			session.setAttribute("writerDetailsMassage", obj);
+			return "redirect:/WriterDash";
+		}
+			 
+	}
+	
+	@RequestMapping("/WriterDash")
+	public String writerdash(HttpSession session) {
+		if(session.getAttribute("writerDetailsMassage")!=null) {
+			return "WriterDash";
+		}
+		else {
+			return "redirect:/writerlogin";
+		}
+	}
+	
+	
+	
+	
 	@RequestMapping("/tables")
 	public String writerTables() {
 		return "tables";
@@ -95,33 +129,7 @@ public class MyController {
 	public String adminapprove() {
 		return "adminapprove";
 	}
-	@RequestMapping("/writerlogin")
-	public String writerlogin() {
-		return "writerlogin";
-	}
 	
-//	Writer login Mapping part 
-	@PostMapping("/WriterLogin")
-	public String writeLogin(String email,String password,HttpSession session) {
-		
-		if(services.checkEmailPass(email, password) == null) {
-			System.out.println("Login Un-Sucessfull..");
-			session.setAttribute("WriterSignUpmsg", "Please Provide Registered Email Id And Password");
-			return "redirect:/writerlogin";
-		}
-		else {
-			System.out.println("Login Sucessfull..");
-			WriterModel obj = services.checkEmailPass(email, password);
-			session.setAttribute("writerDetailsMassage", obj);
-			return "redirect:/WriterDash";
-		}
-			 
-	}
-	
-	@RequestMapping("/writersignup")
-	public String writersignup() {
-		return "writersignup";
-	}
 	@RequestMapping("/writerprofile")
 	public String writerprofile() {
 		return "writerprofile";
