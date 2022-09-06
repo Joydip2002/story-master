@@ -8,10 +8,11 @@ import com.story.demo.model.UserModel;
 
 @Repository
 public interface UserRepo extends JpaRepository<UserModel, Integer>{
-
-	 @Query("select w from UserModel w where useremail = ?1")
+//Unique Email Already Exists 
+	 @Query("select u from UserModel u where useremail = ?1")
 	public UserModel findUserEmailId(String useremail);
 	
-	 @Query("select w from UserModel w where useremail = ?1 and userpassword = ?2")
+//	 Login Credentials
+	 @Query("select u from UserModel u where useremail = ?1 and userpassword = ?2")
 	 public UserModel cehckUserEmailPass(String useremail,String userpassword); 
 }

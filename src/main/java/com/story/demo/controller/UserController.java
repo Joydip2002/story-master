@@ -16,7 +16,7 @@ import com.story.demo.services.UserService;
 @Controller
 public class UserController {
 	@Autowired
-  UserService service;
+  UserService userService;
  
 	@RequestMapping("/")
 	public String myHome() {
@@ -34,18 +34,18 @@ public class UserController {
 	}
    
    @PostMapping("/userLogin")
-    public String Userlogin(String useremail, String userpassword,HttpSession session) {
-	   
-	   if(service.checkingEmailPass(useremail, userpassword) == null) {
-		   System.out.println("\n\n"+useremail+ userpassword);
+    public String Userlogin(String useremail,String userpassword) {
+	   System.out.println("\n\n"+useremail+ userpassword);
+	   if(userService.checkingEmailPass(useremail, userpassword) == null) {
+		   
 			System.out.println("Login Un-Sucessfull..");
 			session.setAttribute("usermsgWrongPass", "Please Provide Registered Email Id And Password");
 			return "redirect:/userLogin";
 		}
 		else {
 			System.out.println("Login Sucessfull..");
-			UserModel obj = service.checkingEmailPass(useremail, userpassword);
-			session.setAttribute("usermsg", obj);
+//			UserModel obj = userService.checkingEmailPass(useremail, userpassword);
+//			session.setAttribute("usermsg", obj);
 			return "redirect:/";
 		}
    }
@@ -61,13 +61,13 @@ public class UserController {
 			   session.setAttribute("userMassage", "Password Mismatch");
 			return "redirect:/userSignup";
 		 }
-		   else if(service.checkDuplicateEmail(info.getUseremail()) != null) {
+		   else if(userService.checkDuplicateEmail(info.getUseremail()) != null) {
 			   session.setAttribute("userMassage", "Email Already Exist");
 				return "redirect:/userSignup";
 		   }
 		 else{
 			   System.out.println(info); 
-			   service.userSave(info);
+			   userService.userSave(info);
 			   session.setAttribute("userLoginMassage", "Registered Successful..Login Here");
 			return "redirect:/userLogin"; 
 		   }
