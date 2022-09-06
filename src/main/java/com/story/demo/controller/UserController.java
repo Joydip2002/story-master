@@ -15,15 +15,20 @@ import com.story.demo.services.UserService;
 @Controller
 public class UserController {
 	@Autowired
-  UserService userService;
+  	UserService userService;
  
+	String checkForRedirectPost="";
+	
 	@RequestMapping("/")
 	public String myHome() {
 		return "index";
 	}
 	@RequestMapping("/story")
-	public String myStory() {
-		return "single-post";
+	public String myStory(HttpSession session) {
+		if(session.getAttribute("usermsg")!=null)
+			return "single-post";
+		else
+			return "login";
 	}
 	
 	
@@ -35,8 +40,7 @@ public class UserController {
    @PostMapping("/userLogin")
     public String Userlogin(String useremail,String userpassword,HttpSession session) {
 	   System.out.println("\n\n"+useremail+ userpassword);
-	   if(userService.checkingEmailPass(useremail, userpassword) == null) {
-		   
+	   if(userService.checkingEmailPass(useremail, userpassword) == null) {		   
 			System.out.println("Login Un-Sucessfull..");
 			session.setAttribute("usermsgWrongPass", "Please Provide Registered Email Id And Password");
 			return "redirect:/userLogin";
