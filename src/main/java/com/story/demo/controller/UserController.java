@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.story.demo.model.UserModel;
-import com.story.demo.model.WriterModel;
 import com.story.demo.services.UserService;
 
 @Controller
