@@ -43,8 +43,8 @@ public class UserController {
 		}
 		else {
 			System.out.println("Login Sucessfull..");
-//			UserModel obj = userService.checkingEmailPass(useremail, userpassword);
-//			session.setAttribute("usermsg", obj);
+			UserModel obj = userService.checkingEmailPass(useremail, userpassword);
+			session.setAttribute("usermsg", obj);
 			return "redirect:/";
 		}
    }

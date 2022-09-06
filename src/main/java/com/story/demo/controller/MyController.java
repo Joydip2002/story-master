@@ -1,6 +1,8 @@
 package com.story.demo.controller;
 
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.story.demo.logic.WriterAction;
 import com.story.demo.model.WriterModel;
 
 import com.story.demo.services.GoodStoryServices;
@@ -21,7 +24,7 @@ public class MyController {
 	@Autowired
 	GoodStoryServices services;
 	
-	
+	WriterAction writeract=new WriterAction();
 	
 	
 	
@@ -50,6 +53,7 @@ public class MyController {
 		else {
 			System.out.println(info);
 			services.writersave(info);
+			writeract.createFolder(info.getId());
 			session.setAttribute("WriterSignUpmsg", "Registered Successfully...Please Login Here");
 			return "redirect:/writerlogin";
 		}
@@ -58,8 +62,13 @@ public class MyController {
 	
 	
 	@RequestMapping("/writerlogin")
-	public String writerlogin() {
-		return "writerlogin";
+	public String writerlogin(HttpSession session) {
+		if(session.getAttribute("writerDetailsMassage")!=null) {
+			return "WriterDash";
+		}
+		else {
+			return "writerlogin";
+		}
 	}
 	
 	
@@ -92,40 +101,53 @@ public class MyController {
 	}
 	
 	
+	@RequestMapping("/createstory")
+	public String storycreate(HttpSession session) {
+		
+		if(session.getAttribute("writerDetailsMassage")!=null) {
+			return "createstory";
+		}
+		else {
+			return "redirect:/writerlogin";
+		}
+	}
+	
+	@RequestMapping("/writestory")
+	public String storywrite(HttpSession session) throws IOException {
+		if(session.getAttribute("writerDetailsMassage")!=null) {
+			String s="dhgf u6ucvfyt 6ufhtdt ryuyr ";
+			WriterModel writerModel=(WriterModel) session.getAttribute("writerDetailsMassage");
+			writeract.writeStory(s, 1,writerModel.getId());
+			return "writestory";
+		}
+		else {
+			return "redirect:/writerlogin";
+		}
+	}
+	
+	@RequestMapping("/WriterLogout")
+	public String writerLogout(HttpSession session) {
+		if(session.getAttribute("writerDetailsMassage")!=null) {
+			session.removeAttribute("writerDetailsMassage");
+			return "redirect:/";
+		}
+		else {
+			return "redirect:/writerlogin";
+		}
+	}
+	
+	
+	@RequestMapping("/writerlist")
+	public String writerlist() {
+		return "writerlist";
+	}
 	
 	
 	@RequestMapping("/tables")
 	public String writerTables() {
 		return "tables";
 	}
-	@RequestMapping("/createstory")
-	public String storycreate() {
-		return "createstory";
-	}
-	@RequestMapping("/writestory")
-	public String storywrite() {
-		return "writestory";
-	}
-	@RequestMapping("/adminsignin")
-	public String adminsignin() {
-		return "adminsignin";
-	}
-	@RequestMapping("/adminpanel")
-	public String adminpanel() {
-		return "adminpanel";
-	}
-	@RequestMapping("/writerlist")
-	public String writerlist() {
-		return "writerlist";
-	}
-	@RequestMapping("/admindue")
-	public String admindue() {
-		return "admindue";
-	}
-	@RequestMapping("/adminapprove")
-	public String adminapprove() {
-		return "adminapprove";
-	}
+	
 	
 	@RequestMapping("/writerprofile")
 	public String writerprofile() {
