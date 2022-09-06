@@ -23,7 +23,6 @@ public class WriterModel {
 	private String cpassword;
 	public WriterModel() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public int getId() {
 		return id;
