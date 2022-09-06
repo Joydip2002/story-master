@@ -18,11 +18,12 @@ public class UserController {
   	UserService userService;
  
 	String checkForRedirectPost="";
-	
+  
 	@RequestMapping("/")
 	public String myHome() {
 		return "index";
 	}
+  
 	@RequestMapping("/story")
 	public String myStory(HttpSession session) {
 		if(session.getAttribute("usermsg")!=null)
