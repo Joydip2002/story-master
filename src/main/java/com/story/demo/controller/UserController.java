@@ -1,4 +1,4 @@
-package com.story.demo;
+package com.story.demo.controller;
 
 
 import javax.servlet.http.HttpSession;
@@ -18,6 +18,16 @@ public class UserController {
 	@Autowired
   UserService userService;
  
+	@RequestMapping("/")
+	public String myHome() {
+		return "index";
+	}
+	@RequestMapping("/story")
+	public String myStory() {
+		return "single-post";
+	}
+	
+	
    @RequestMapping("/userLogin")
 	public String login() {
 		return "login";
@@ -29,7 +39,7 @@ public class UserController {
 	   if(userService.checkingEmailPass(useremail, userpassword) == null) {
 		   
 			System.out.println("Login Un-Sucessfull..");
-//			session.setAttribute("usermsg", "Please Provide Registered Email Id And Password");
+			session.setAttribute("usermsgWrongPass", "Please Provide Registered Email Id And Password");
 			return "redirect:/userLogin";
 		}
 		else {

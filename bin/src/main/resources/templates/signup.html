@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th = "http://www.thymeleaf.com">
 
 <head>
   <meta charset="utf-8">
@@ -44,44 +44,51 @@
 
   <main id="main">
     <section id="contact" class="contact mb-5">
-      <div class="container" data-aos="fade-up">
+      <div class="container" style="-webkit-box-shadow: 10px 5px 27px 3px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 5px 27px 3px rgba(0,0,0,0.75);
+box-shadow: 10px 5px 27px 3px rgba(0,0,0,0.75);" data-aos="fade-up">
 
         <div class="row">
           <div class="col-lg-12 text-center mb-2">
             <h2 class="page-title">User Sign Up</h2>
+            <!-- session Massage -->
+             <div class = "text-center" th:if = ${session.userMassage}>
+    <div class="alert text-white" style="background-color:red" role="alert" th:text ="${session.userMassage}">
+</div>
+
+  <th:block th:text="${#session.removeAttribute('userMassage')}"></th:block>
+  </div>
           </div>
         </div>
 
         <div class="form mt-5">
-          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+        
+          <form th:action="@{/userSignup}" method="post" role="form">
             <div class="row">
-              <div class="form-group col-md-6">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+              <div class="form-group col-md-6 my-3">
+                <input type="text" name="userName" class="form-control" id="name" placeholder="Your Name" required>
               </div>              
-            <div class="form-group col-md-6">
-              <input type="number" class="form-control" name="subject" id="subject" placeholder="Mobile No" required>
+            <div class="form-group col-md-6 my-3">
+              <input type="number" class="form-control" name="usermobile" id="subject" placeholder="Mobile No" required>
             </div>
             </div>
-            <div class="form-group col-md-12">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+            <div class="form-group col-md-12 my-3">
+                <input type="email" class="form-control" name="useremail" id="email" placeholder="Your Email" required>
               </div>
-            <div class="form-group">
-              <textarea class="form-control" name="message" rows="2" placeholder="Address" required></textarea>
+            <div class="form-group my-3">address
+              <textarea class="form-control" name="useraddress" rows="2" placeholder="Address" required></textarea>
             </div>
             <div class="row">
-            <div class="form-group col-md-6">
-              <input type="password" class="form-control" name="subject" id="subject" placeholder="Password" required>
+            <div class="form-group col-md-6 my-3">
+              <input type="password" class="form-control" name="userpassword" id="subject" placeholder="Password" required>
             </div>
-            <div class="form-group col-md-6">
-              <input type="password" class="form-control" name="subject" id="subject" placeholder="Confirm Password" required>
+            <div class="form-group col-md-6 my-3">
+              <input type="password" class="form-control" name="usercpaasword" id="subject" placeholder="Confirm Password" required>
             </div>
             </div>
-            <div class="my-3">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
+            <div class="text-center">
+                <input type="submit" class="btn btn-success btn-block bg-dark text-white my-3">
             </div>
-            <div class="text-center"><button type="submit">Sign Up</button></div>
           </form>
         </div><!-- End Contact Form -->
 

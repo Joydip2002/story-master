@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th = "http://www.thymeleaf.com">
 
 <head>
   <meta charset="utf-8">
@@ -52,36 +52,50 @@
 
   <main id="main">
     <section id="contact" class="contact mb-5">
-      <div class="container" data-aos="fade-up">
+      <div class="container" style="-webkit-box-shadow: 10px 5px 27px 3px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 5px 27px 3px rgba(0,0,0,0.75);
+box-shadow: 10px 5px 27px 3px rgba(0,0,0,0.75);" data-aos="fade-up">
 
         <div class="row">
           <div class="col-lg-12 text-center mb-2">
             <h2 class="page-title">Writer Login</h2>
+            
+            <!--  Session Through Massage-->
+                
           </div>
+          
+           <div class = "text-center" th:if = ${session.WriterSignUpmsg}>
+    <div class="alert text-white" style="background-color:red" role="alert" th:text ="${session.WriterSignUpmsg}">
+</div>
+
+  <th:block th:text="${#session.removeAttribute('WriterSignUpmsg')}"></th:block>
+  </div>
         </div>
+        <!-- End Session Massage -->
 
         <div class="form mt-5 mb-3">
-          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+          <form th:action="@{/WriterLogin}" method="post" role="form" >
             
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-12 py-3">
                 <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
               </div>
      
-            <div class="form-group col-md-12">
-              <input type="password" class="form-control" name="subject" id="subject" placeholder="Password" required>
+            <div class="form-group col-md-12 py-3">
+              <input type="password" class="form-control" name="password" id="subject" placeholder="Password" required>
             </div>
-         
-            <div class="my-3">
+            
+         <!-- Mailing area -->
+           <!--<div class="my-3">
               <div class="loading">Loading</div>
               <div class="error-message"></div>
               <div class="sent-message">Your message has been sent. Thank you!</div>
-            </div>
-            <div class="text-center"><button type="submit">Login</button></div>
+            </div>-->
+            <div class="text-center py-3"><button type="submit" class="btn btn-block bg-primary text-white">Login</button></div>
           </form>
         </div><!-- End Contact Form -->
 		<div class="foot">
-		<a href="/writersignup">Don't Have Account Sign Up</a>
-		<a href="#">Forgot Password?</a>
+		<a href="/writersignup" class="m-2">Don't Have Account Sign Up</a>
+		<a href="#" class="m-2">Forgot Password?</a>
 		</div>
       </div>
     </section>
