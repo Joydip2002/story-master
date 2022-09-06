@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.story.demo.model.UserModel;
-import com.story.demo.model.WriterModel;
 import com.story.demo.services.UserService;
 
 @Controller
@@ -34,7 +33,7 @@ public class UserController {
 	}
    
    @PostMapping("/userLogin")
-    public String Userlogin(String useremail,String userpassword) {
+    public String Userlogin(String useremail,String userpassword,HttpSession session) {
 	   System.out.println("\n\n"+useremail+ userpassword);
 	   if(userService.checkingEmailPass(useremail, userpassword) == null) {
 		   
@@ -44,8 +43,8 @@ public class UserController {
 		}
 		else {
 			System.out.println("Login Sucessfull..");
-//			UserModel obj = userService.checkingEmailPass(useremail, userpassword);
-//			session.setAttribute("usermsg", obj);
+			UserModel obj = userService.checkingEmailPass(useremail, userpassword);
+			session.setAttribute("usermsg", obj);
 			return "redirect:/";
 		}
    }
