@@ -101,16 +101,16 @@ public class MyController {
 	}
 	
 	
-	@RequestMapping("/createstory")
-	public String storycreate(HttpSession session) {
-		
-		if(session.getAttribute("writerDetailsMassage")!=null) {
-			return "createstory";
-		}
-		else {
-			return "redirect:/writerlogin";
-		}
-	}
+//	@RequestMapping("/createstory")
+//	public String storycreate(HttpSession session) {
+//		
+//		if(session.getAttribute("writerDetailsMassage")!=null) {
+//			return "createstory";
+//		}
+//		else {
+//			return "redirect:/writerlogin";
+//		}
+//	}
 	
 	@RequestMapping("/writestory")
 	public String storywrite(HttpSession session) throws IOException {
@@ -150,13 +150,15 @@ public class MyController {
 	
 	
 	@RequestMapping("/writerprofile")
-	public String writerprofile() {
-		return "writerprofile";
+	public String writerprofile(HttpSession session) {
+		if(session.getAttribute("writerDetailsMassage") != null) {
+			return "writerprofile";
+		}
+		else {
+			return "redirect:/writerlogin";
+		}
 	}
-	@RequestMapping("/userprofile")
-	public String userprofile() {
-		return "userprofile";
-	}
+	
 	@RequestMapping("/allWriterList")
 	public String WriterList() {
 		return "allWriterList";

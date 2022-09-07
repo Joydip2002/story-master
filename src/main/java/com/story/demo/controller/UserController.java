@@ -77,4 +77,14 @@ public class UserController {
 		   }
 		     
 	   }
+	 
+	 @RequestMapping("/userprofile")
+		public String userprofile(HttpSession session) {
+			if(session.getAttribute("usermsg") != null) {
+				return "userprofile";
+			}
+			else{
+				return "redirect:/userLogin";
+			}
+		}
 }
