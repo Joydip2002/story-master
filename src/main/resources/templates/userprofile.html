@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th = "http//:www.thymeleaf.com">
 <head>
     <meta charset="utf-8">
     <!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
@@ -24,15 +24,21 @@
                                 <div class="col-md-6">
                                     <div class="media">
                                         <label>Name</label>
-                                        <p>Demo Name</p>
+                                        <p th:if = ${session.usermsg.getUserName()}>
+                                            <div class = "text-center" th:text ="${session.usermsg.getUserName()}"></div>
+                                        </p>
                                     </div>
                                     <div class="media">
                                         <label>Email</label>
-                                        <p>Demo Email</p>
+                                        <p  th:if = ${session.usermsg.getUseremail()}>
+                                         <div class = "text-center" style="font-size:14px" th:text ="${session.usermsg.getUseremail()}"></div>
+                                        </p>
                                     </div>
                                     <div class="media">
                                         <label>Phone</label>
-                                        <p>Demo Mobile Number</p>
+                                       <p  th:if = ${session.usermsg.getUsermobile()}>
+                                         <div class = "text-center"  th:text ="${session.usermsg.getUsermobile()}"></div>
+                                        </p>
                                     </div>
                                     <div class="media">
                                        
@@ -41,7 +47,9 @@
                                 <div class="col-md-6">
                                   <div class="media">
                                     <label>Address</label>
-                                    <p>820-885-3321</p>
+                                    <p  th:if = ${session.usermsg.getUseraddress()}>
+                                         <div class = "text-center"   th:text ="${session.usermsg.getUseraddress()}"></div>
+                                        </p>
                                 </div>
                                 <div class="media">
                                   
@@ -52,7 +60,9 @@
                                     
                                     <div class="media">
                                         <label>Password</label>
-                                        <p>Available</p>
+                                       <p  th:if = ${session.usermsg.getUserpassword()}>
+                                         <div class = "text-center"  th:text ="${session.usermsg.getUserpassword()}"></div>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
