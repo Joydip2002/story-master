@@ -23,16 +23,22 @@
                             <div class="row about-list">
                                 <div class="col-md-6">
                                     <div class="media">
-                                        <label>Name</label>
-                                        <p>Demo Name</p>
+                                        <label>Name : </label>
+                                       <p  th:if = ${session.writerDetailsMassage.getName()}>
+                                         <div class = "text-center" style="font-size:14px" th:text ="${session.writerDetailsMassage.getName()}"></div>
+                                        </p>
                                     </div>
                                     <div class="media">
-                                        <label>Email</label>
-                                        <p>Demo Email</p>
+                                        <label>Email : </label>
+                                        <p  th:if = ${session.writerDetailsMassage.getEmail()}>
+                                         <div class = "text-center" style="font-size:14px" th:text ="${session.writerDetailsMassage.getEmail()}"></div>
+                                        </p>
                                     </div>
                                     <div class="media">
-                                        <label>Phone</label>
-                                        <p>Demo Mobile Number</p>
+                                        <label>Phone : </label>
+                                        <p  th:if = ${session.writerDetailsMassage.getMobile()}>
+                                         <div class = "text-center" style="font-size:14px" th:text ="${session.writerDetailsMassage.getMobile()}"></div>
+                                        </p>
                                     </div>
                                     <div class="media">
                                        
@@ -40,8 +46,10 @@
                                 </div>
                                 <div class="col-md-6">
                                   <div class="media">
-                                    <label>Address</label>
-                                    <p>820-885-3321</p>
+                                    <label>Address: </label>
+                                    <p  th:if = ${session.writerDetailsMassage.getAddress()}>
+                                         <div class = "text-center" style="font-size:14px" th:text ="${session.writerDetailsMassage.getAddress()}"></div>
+                                        </p>
                                 </div>
                                 <div class="media">
                                   
@@ -51,8 +59,10 @@
                                     </div>
                                     
                                     <div class="media">
-                                        <label>Password</label>
-                                        <p>Available</p>
+                                        <label>Password : </label>
+                                        <p  th:if = ${session.writerDetailsMassage.getPassword()}>
+                                         <div class = "text-center" style="font-size:14px" th:text ="${session.writerDetailsMassage.getPassword()}"></div>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -158,7 +168,7 @@ img {
   position: relative;
 }
 .about-list label:after {
-  content: "";
+ 
   position: absolute;
   top: 0;
   bottom: 0;

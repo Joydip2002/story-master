@@ -23,19 +23,19 @@
                             <div class="row about-list">
                                 <div class="col-md-6">
                                     <div class="media">
-                                        <label>Name</label>
+                                        <label>Name : </label>
                                         <p th:if = ${session.usermsg.getUserName()}>
                                             <div class = "text-center" th:text ="${session.usermsg.getUserName()}"></div>
                                         </p>
                                     </div>
                                     <div class="media">
-                                        <label>Email</label>
+                                        <label>Email : </label>
                                         <p  th:if = ${session.usermsg.getUseremail()}>
                                          <div class = "text-center" style="font-size:14px" th:text ="${session.usermsg.getUseremail()}"></div>
                                         </p>
                                     </div>
                                     <div class="media">
-                                        <label>Phone</label>
+                                        <label>Phone : </label>
                                        <p  th:if = ${session.usermsg.getUsermobile()}>
                                          <div class = "text-center"  th:text ="${session.usermsg.getUsermobile()}"></div>
                                         </p>
@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="col-md-6">
                                   <div class="media">
-                                    <label>Address</label>
+                                    <label>Address:</label>
                                     <p  th:if = ${session.usermsg.getUseraddress()}>
                                          <div class = "text-center"   th:text ="${session.usermsg.getUseraddress()}"></div>
                                         </p>
@@ -59,7 +59,7 @@
                                     </div>
                                     
                                     <div class="media">
-                                        <label>Password</label>
+                                        <label>Password : </label>
                                        <p  th:if = ${session.usermsg.getUserpassword()}>
                                          <div class = "text-center"  th:text ="${session.usermsg.getUserpassword()}"></div>
                                         </p>
@@ -141,7 +141,7 @@ img {
   position: relative;
 }
 .about-list label:after {
-  content: "";
+   
   position: absolute;
   top: 0;
   bottom: 0;
