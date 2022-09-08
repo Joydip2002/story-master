@@ -7,6 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+ 
 
 @Entity
 @Table(name = "stories")
@@ -21,31 +25,14 @@ public class CreateStoryModel {
 	private String story_category;
 	private String story_desc;
 	private int view_count = 0;
-	private Date published_date;
 	
+//	Date
+	@Temporal(TemporalType.DATE)
+	private Date publish_Date = new Date(System.currentTimeMillis());
 	public CreateStoryModel() {
 		super();
 		 
 	}
-	
-	
-	
-
-	public CreateStoryModel(int story_id, String story_name, int author_id, String img_link, String story_category,
-			String story_desc, int view_count, Date published_date) {
-		super();
-		this.story_id = story_id;
-		this.story_name = story_name;
-		this.author_id = author_id;
-		this.img_link = img_link;
-		this.story_category = story_category;
-		this.story_desc = story_desc;
-		this.view_count = view_count;
-		this.published_date = published_date;
-	}
-
-
-
 
 	public int getStory_id() {
 		return story_id;
@@ -103,28 +90,14 @@ public class CreateStoryModel {
 		this.view_count = view_count;
 	}
 
-	public Date getPublished_date() {
-		return published_date;
-	}
-
-	public void setPublished_date(Date published_date) {
-		this.published_date = published_date;
-	}
-
 	@Override
 	public String toString() {
 		return "CreateStoryModel [story_id=" + story_id + ", story_name=" + story_name + ", author_id=" + author_id
 				+ ", img_link=" + img_link + ", story_category=" + story_category + ", story_desc=" + story_desc
-				+ ", view_count=" + view_count + ", published_date=" + published_date + "]";
+				+ ", view_count=" + view_count + ", publish_Date=" + publish_Date + "]";
 	}
-	
-	
-	
+
 	 
-	
-	
-	
-	
 	
 	
 
