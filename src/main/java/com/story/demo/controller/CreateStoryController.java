@@ -23,8 +23,16 @@ public class CreateStoryController {
 	CreateStoryService createStoryService;
 	
 	@RequestMapping("/createstory")
-	public String storycreate() {
-		return "createstory";
+	public String storycreate(HttpSession session) {
+		
+		if(session.getAttribute("writerDetailsMassage")!=null) {
+			return "createstory";
+		}
+		else {
+			return "redirect:/writerlogin";
+		}
+		
+		
 	}
 	
  //	 Postmapping WriteStory 
@@ -33,19 +41,14 @@ public class CreateStoryController {
 	public String writerStories(@ModelAttribute CreateStoryModel info,HttpSession session) throws ParseException {
 		WriterModel writerModel = (WriterModel) session.getAttribute("writerDetailsMassage");
 		info.setAuthor_id(writerModel.getId());
-		DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-
-		Date today = new Date();
-
-		Date todayWithZeroTime = formatter.parse(formatter.format(today));
-		info.setPublished_date(todayWithZeroTime);
-//		System.out.println(date);
 		System.out.println(info);
 		
+		//Save data in database
 		createStoryService.saveStory(info);
 		
-//		createStoryService.saveStory(info);
+		//Session
+		session.setAttribute("createStoryMsg", "Your Story is Successfully Added..");
 		
-		return "redirect:/";
+		return "redirect:/WriterDash";
 	}
 }

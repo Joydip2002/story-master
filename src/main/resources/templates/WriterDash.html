@@ -20,7 +20,13 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1>
+                        <h1 class="mt-4">Dashboard
+                        
+                        <div class="alert text-primary"  style="font-size:20px" role="alert" th:text ="${session.createStoryMsg}"></div>
+
+                        <th:block th:text="${#session.removeAttribute('createStoryMsg')}"></th:block></div>
+                        
+                        </h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
