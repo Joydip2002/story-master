@@ -50,7 +50,7 @@ public class UserController {
 			System.out.println("Login Sucessfull..");
 			UserModel obj = userService.checkingEmailPass(useremail, userpassword);
 			session.setAttribute("usermsg", obj);
-			return "redirect:/";
+			return "redirect:/userprofile";
 		}
    }
 	
@@ -87,4 +87,14 @@ public class UserController {
 				return "redirect:/userLogin";
 			}
 		}
+	 @RequestMapping("/userLogout")
+	 public String userLogout(HttpSession session) {
+		 if(session.getAttribute("usermsg")!=null) {
+				session.removeAttribute("usermsg");
+				return "redirect:/";
+			}
+			else {
+				return "login";
+			}
+	 }
 }

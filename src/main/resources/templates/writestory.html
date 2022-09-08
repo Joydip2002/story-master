@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th = "http:// www.thymeleaf.com">
 
 <head>
   <meta charset="utf-8">
@@ -53,27 +53,23 @@
         </div>
 
         <div class="form mt-5 mb-3">
-          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+          <form action="/writestory" method="post">
                      
                      <!-- Image -->
                      <div class="form-group col-md-12">
 
-              <img class="mx-auto" src="https://www.homecinemachoice.com/images/styles/600_wide/public/aspect%20ratio%2001.jpg" alt="Failed to load image" height= "200px" style = "display:block;">
+              <img class="mx-auto" src ="${session.storyInfo.getImg_link()}" alt="Failed to load image" height= "200px" style = "display:block;">
               
             </div> 
               
       <!-- Story -->
             <div class="form-group col-md-12">
 
-              <textarea name="subject" id="subject" class="form-control" cols="184" rows="20" placeholder="Write Your Story" required></textarea>
+              <textarea name="sto" id="subject" class="form-control" cols="184" rows="20" placeholder="Write Your Story" required></textarea>
               
             </div>
          
-            <div class="my-3">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
-            </div>
+      
             <div class="text-left mt-2"><button type="submit">Submit</button></div>
           </form>
         </div><!-- End Contact Form -->

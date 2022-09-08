@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.story.demo.logic.WriterAction;
+import com.story.demo.model.CreateStoryModel;
 import com.story.demo.model.WriterModel;
 
 import com.story.demo.services.GoodStoryServices;
@@ -112,18 +113,7 @@ public class MyController {
 //		}
 //	}
 	
-	@RequestMapping("/writestory")
-	public String storywrite(HttpSession session) throws IOException {
-		if(session.getAttribute("writerDetailsMassage")!=null) {
-			String s="dhgf u6ucvfyt 6ufhtdt ryuyr ";
-			WriterModel writerModel=(WriterModel) session.getAttribute("writerDetailsMassage");
-			writeract.writeStory(s, 1,writerModel.getId());
-			return "writestory";
-		}
-		else {
-			return "redirect:/writerlogin";
-		}
-	}
+	
 	
 	@RequestMapping("/WriterLogout")
 	public String writerLogout(HttpSession session) {
