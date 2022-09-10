@@ -71,7 +71,7 @@ public class CreateStoryController {
 			CreateStoryModel story=(CreateStoryModel) session.getAttribute("storyInfo");
 			WriterModel writerModel=(WriterModel) session.getAttribute("writerDetailsMassage");
 			writeract.writeStory(sto, story.getStory_id(),writerModel.getId());
-			return "redirect:/";
+			return "WriterDash";
 		}
 		else {
 			return "redirect:/writerlogin";

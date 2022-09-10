@@ -50,7 +50,7 @@ public class UserController {
 			System.out.println("Login Sucessfull..");
 			UserModel obj = userService.checkingEmailPass(useremail, userpassword);
 			session.setAttribute("usermsg", obj);
-			return "redirect:/userprofile";
+			return "redirect:/";
 		}
    }
 	

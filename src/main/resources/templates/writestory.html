@@ -56,12 +56,12 @@
           <form action="/writestory" method="post">
                      
                      <!-- Image -->
-                     <div class="form-group col-md-12">
+                     <div class="form-group col-md-12 mt-5">
 
-              <img class="mx-auto" src ="${session.storyInfo.getImg_link()}" alt="Failed to load image" height= "200px" style = "display:block;">
+              <img class="mx-auto" th:src ="${session.storyInfo.getImg_link()}" alt="Failed to load image" height= "200px" style = "display:block;">
               
             </div> 
-              
+             
       <!-- Story -->
             <div class="form-group col-md-12">
 

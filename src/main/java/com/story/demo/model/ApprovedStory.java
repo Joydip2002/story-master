@@ -6,16 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
- 
-
 @Entity
-@Table(name = "stories")
-public class CreateStoryModel {
-	
+public class ApprovedStory {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int story_id;
@@ -29,16 +24,22 @@ public class CreateStoryModel {
 //	Date
 	@Temporal(TemporalType.DATE)
 	private Date publish_Date = new Date(System.currentTimeMillis());
-	public CreateStoryModel() {
+
+	public ApprovedStory() {
 		super();
-		 
+		// TODO Auto-generated constructor stub
 	}
 
-	public Date getPublish_Date() {
-		return publish_Date;
-	}
-
-	public void setPublish_Date(Date publish_Date) {
+	public ApprovedStory(int story_id, String story_name, int author_id, String img_link, String story_category,
+			String story_desc, int view_count, Date publish_Date) {
+		super();
+		this.story_id = story_id;
+		this.story_name = story_name;
+		this.author_id = author_id;
+		this.img_link = img_link;
+		this.story_category = story_category;
+		this.story_desc = story_desc;
+		this.view_count = view_count;
 		this.publish_Date = publish_Date;
 	}
 
@@ -98,17 +99,20 @@ public class CreateStoryModel {
 		this.view_count = view_count;
 	}
 
+	public Date getPublish_Date() {
+		return publish_Date;
+	}
+
+	public void setPublish_Date(Date publish_Date) {
+		this.publish_Date = publish_Date;
+	}
+
 	@Override
 	public String toString() {
-		return "CreateStoryModel [story_id=" + story_id + ", story_name=" + story_name + ", author_id=" + author_id
+		return "ApprovedStory [story_id=" + story_id + ", story_name=" + story_name + ", author_id=" + author_id
 				+ ", img_link=" + img_link + ", story_category=" + story_category + ", story_desc=" + story_desc
 				+ ", view_count=" + view_count + ", publish_Date=" + publish_Date + "]";
 	}
 	
 	
-	
-	 
-	
-	
-
 }

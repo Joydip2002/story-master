@@ -149,8 +149,5 @@ public class MyController {
 		}
 	}
 	
-	@RequestMapping("/allWriterList")
-	public String WriterList() {
-		return "allWriterList";
-	}
+	
 }
