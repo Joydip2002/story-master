@@ -61,9 +61,8 @@
                                             <td th:text="${dueStory.getStory_category()}" />
                                             <td th:text="${dueStory.getAuthor_id()}" />
                                             <td th:text="${dueStory.getPublish_Date()}" />
-                                            <td>
-                                            <a href="#"><i class="fa-sharp fa-solid fa-square-check" style="font-size:1.3rem;margin-left:1rem;color:black;"></i></a> 
-                                            <a href="#"><i class="fa-sharp fa-solid fa-trash" style="font-size:1.3rem;margin-left:1rem;color:black;" ></i></a>
+                                            <td> 
+                                            <a th:href="@{/deleteDueStory/}+${dueStory.getStory_id()}"><i class="fa-sharp fa-solid fa-trash" style="font-size:1.3rem;margin-left:1rem;color:black;" ></i></a>
                                             <a th:href="@{/approvedStory/}+${dueStory.getStory_id()}"><i class="fa-sharp fa-solid fa-check-double" style="font-size:1.3rem;margin-left:1rem;color:black;"></i></a>
                                             </td>
                                         </tr>

@@ -61,8 +61,8 @@
                                             <td th:text="${story.getPublish_Date()}" />
                                             <td th:text="${story.getView_count()}" />
                                             <td>
-                                            <a href="#"><i class="fa-sharp fa-solid fa-pen-to-square" style="font-size:1.3rem;margin-left:1rem;color:black;"></i></a> 
-                                            <a href="#"><i class="fa-sharp fa-solid fa-trash" style="font-size:1.3rem;margin-left:1rem;color:black;" ></i></a>
+                                            <a th:href="@{/editStory-}+${story.getAuthor_id()}+@{-}+${story.getStory_id()}"><i class="fa-sharp fa-solid fa-pen-to-square" style="font-size:1.3rem;margin-left:1rem;color:black;"></i></a> 
+                                            <a th:href="@{/deleteStoryByWriter/}+${story.getStory_id()}"><i class="fa-sharp fa-solid fa-trash" style="font-size:1.3rem;margin-left:1rem;color:black;" ></i></a>
                                             
                                             </td>
                                         </tr>

@@ -12,7 +12,6 @@ import javax.persistence.TemporalType;
 @Entity
 public class ApprovedStory {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int story_id;
 	private String story_name;
 	private int author_id;

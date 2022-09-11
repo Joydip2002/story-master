@@ -62,7 +62,7 @@
                     <td th:text="${writerList.getEmail()}" />
                     <td th:text="${writerList.getMobile()}" />
                     <td class="action">
-                        <a href="#"><ion-icon name="eye"></ion-icon></a>
+                        <a th:href="@{/writerProfileViewByAdmin/}+${writerList.getId()}"><ion-icon name="eye"></ion-icon></a>
                         <a th:href="@{/writerDelete/}+${writerList.getId()}"><ion-icon name="trash"></ion-icon></a>
                     </td>
                   </tr>

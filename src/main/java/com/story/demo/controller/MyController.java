@@ -1,7 +1,6 @@
 package com.story.demo.controller;
 
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpSession;
@@ -15,7 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.story.demo.logic.WriterAction;
 import com.story.demo.model.ApprovedStory;
-import com.story.demo.model.CreateStoryModel;
 import com.story.demo.model.WriterModel;
 import com.story.demo.repository.ApprovedStoryRepo;
 import com.story.demo.services.GoodStoryServices;

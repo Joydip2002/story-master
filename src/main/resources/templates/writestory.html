@@ -55,19 +55,32 @@
         <div class="form mt-5 mb-3">
           <form action="/writestory" method="post">
                      
-                     <!-- Image -->
+		    <span th:if="${session.flagForEditOrCreate == 0}">
+		    
+		    	 <!-- Image -->
                      <div class="form-group col-md-12 mt-5">
-
-              <img class="mx-auto" th:src ="${session.storyInfo.getImg_link()}" alt="Failed to load image" height= "200px" style = "display:block;">
-              
-            </div> 
+              			<img class="mx-auto" th:src ="${session.storyInfo.getImg_link()}" alt="Failed to load image" height= "200px" style = "display:block;">
+            		</div> 
              
-      <!-- Story -->
-            <div class="form-group col-md-12">
+      			<!-- Story -->
+		            <div class="form-group col-md-12">
+		              <textarea name="sto" id="subject" class="form-control" cols="184" rows="20" placeholder="Write Your Story" required></textarea>            
+		            </div>
+		    </span>
+		    <span th:if="${session.flagForEditOrCreate == 1}">
+		    	<!-- Image -->
+                     <div class="form-group col-md-12 mt-5">
+              			<img class="mx-auto" th:src ="${imageLink}" alt="Failed to load image" height= "200px" style = "display:block;">
+            		</div> 
+             
+      			<!-- Story -->
+		            <div class="form-group col-md-12">
+		              <textarea name="sto" id="subject" class="form-control" cols="184" rows="20" placeholder="Write Your Story" required th:text="${story}"></textarea>            
+		            </div>
+		    
+		    </span>
 
-              <textarea name="sto" id="subject" class="form-control" cols="184" rows="20" placeholder="Write Your Story" required></textarea>
-              
-            </div>
+                    
          
       
             <div class="text-left mt-2"><button type="submit">Submit</button></div>

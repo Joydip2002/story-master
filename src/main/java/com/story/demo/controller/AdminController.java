@@ -86,6 +86,13 @@ public class AdminController {
 	}
 	
 	
+	@RequestMapping("/deleteDueStory/{id}")
+	public String deleteDueStory(@PathVariable("id") int id) {
+		createStoryRepo.deleteById(id);
+		return "redirect:/admindue";
+	}
+	
+	
 	@RequestMapping("/approvedStory/{story}")
 	public String dueToApproved(@PathVariable("story") int story) {
 		CreateStoryModel obj=createStoryRepo.getReferenceById(story);
@@ -144,6 +151,18 @@ public class AdminController {
 		goodStoryRepo.deleteById(writerId);
 		approvedStoryRepo.deleteStoryByWriterId(writerId);
 		return "redirect:/allWriterList";
+	}
+	
+	@RequestMapping("/writerProfileViewByAdmin/{writerId}")
+	public String writerProfileViewByAdmin(@PathVariable("writerId") int writerId,HttpSession session) {
+		if(checkLogin==1) {
+			WriterModel writer=goodStoryRepo.getReferenceById(writerId);
+			session.setAttribute("writerDetailsMassage", writer);
+			return "writerprofile";
+		}
+		else {
+			return "adminsignin";
+		}
 	}
 	
 }
