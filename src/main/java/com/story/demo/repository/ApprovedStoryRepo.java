@@ -36,4 +36,8 @@ public interface ApprovedStoryRepo extends JpaRepository<ApprovedStory, Integer>
 	@Transactional
 	@Query("update ApprovedStory set view_count=:view_count where story_id=:storyId")
 	void incrementViewCount(@Param("storyId") int storyId, @Param("view_count") int view_count);
+	
+	
+	@Query("select s from ApprovedStory s where author_id=:writerId order by view_count desc")
+	ArrayList<ApprovedStory> findAllStoryOfWriter(@Param("writerId") int writerId);
 }

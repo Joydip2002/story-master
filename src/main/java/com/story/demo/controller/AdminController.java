@@ -92,7 +92,7 @@ public class AdminController {
 		ApprovedStory object=new ApprovedStory(obj.getStory_id(),obj.getStory_name(),obj.getAuthor_id(),obj.getImg_link(),obj.getStory_category(),
 				obj.getStory_desc(),obj.getView_count(),obj.getPublish_Date());
 		approvedStoryRepo.save(object);
-		int id=obj.getStory_id();
+//		int id=obj.getStory_id();
 		createStoryRepo.deleteById(obj.getStory_id());
 		return "redirect:/admindue";
 	}

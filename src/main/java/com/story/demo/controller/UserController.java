@@ -130,7 +130,7 @@ public class UserController {
 		 return "redirect:/";	
 	 }
 	 
-	 @RequestMapping("/{xyz}")
+	 @RequestMapping("/*")
 	 public String handleWhiteLevelError() {
 		 return "404";
 	 }
