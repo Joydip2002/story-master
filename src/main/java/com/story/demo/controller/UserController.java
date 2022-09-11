@@ -33,10 +33,25 @@ public class UserController {
 	String checkForRedirectPost="";
   
 	@RequestMapping("/")
-	public String myHome(HttpSession session) {
+	public ModelAndView myHome(HttpSession session) {
 		ArrayList<ApprovedStory> stories=approvedStoryRepo.findAllOrderByView();
+		ArrayList<ApprovedStory> Drama = approvedStoryRepo.findStoryOfCatagory("Drama");
+		ArrayList<ApprovedStory> Comedy = approvedStoryRepo.findStoryOfCatagory("Comedy");
+		ArrayList<ApprovedStory> Sci_fi = approvedStoryRepo.findStoryOfCatagory("Sci-fi");
+		ArrayList<ApprovedStory> Horror = approvedStoryRepo.findStoryOfCatagory("Horror");
+		ArrayList<ApprovedStory> Tradegy = approvedStoryRepo.findStoryOfCatagory("Tradegy");
+		ArrayList<ApprovedStory> Romantic = approvedStoryRepo.findStoryOfCatagory("Romantic");
+		ModelAndView mv = new ModelAndView("index");
+		mv.addObject("Drama",Drama);
+		mv.addObject("Comedy",Comedy);
+		mv.addObject("Sci_fi",Sci_fi);
+		mv.addObject("Horror",Horror);
+		mv.addObject("Tradegy",Tradegy);
+		mv.addObject("Drama",Drama);
+		mv.addObject("Romantic",Romantic);
 		session.setAttribute("stories", stories);
-		return "index";
+	
+		return mv;
 	}
 	
   

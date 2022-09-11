@@ -40,4 +40,7 @@ public interface ApprovedStoryRepo extends JpaRepository<ApprovedStory, Integer>
 	
 	@Query("select s from ApprovedStory s where author_id=:writerId order by view_count desc")
 	ArrayList<ApprovedStory> findAllStoryOfWriter(@Param("writerId") int writerId);
+	
+	@Query("select s from ApprovedStory s where story_category = :category order by view_count desc")
+	ArrayList<ApprovedStory> findStoryOfCatagory(@Param("category") String catagory);
 }

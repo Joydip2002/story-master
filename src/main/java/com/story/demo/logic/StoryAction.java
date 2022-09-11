@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class StoryAction {
 	public String getStory(int author_id,int story_id) throws IOException{
-		String path="C:\\Users\\BRAJA KISHOR JANA\\Desktop\\story\\"+author_id+"\\"+story_id+".txt";
+		String path="C:\\Users\\HP\\Downloads\\writerStory\\"+author_id+"\\"+story_id+".txt";
 		File f=new File(path);
 		if(!f.exists())
 			return "";
