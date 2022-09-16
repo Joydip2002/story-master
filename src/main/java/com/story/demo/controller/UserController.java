@@ -39,14 +39,14 @@ public class UserController {
 		ArrayList<ApprovedStory> Comedy = approvedStoryRepo.findStoryOfCatagory("Comedy");
 		ArrayList<ApprovedStory> Sci_fi = approvedStoryRepo.findStoryOfCatagory("Sci-fi");
 		ArrayList<ApprovedStory> Horror = approvedStoryRepo.findStoryOfCatagory("Horror");
-		ArrayList<ApprovedStory> Tradegy = approvedStoryRepo.findStoryOfCatagory("Tradegy");
+		ArrayList<ApprovedStory> Tragedy = approvedStoryRepo.findStoryOfCatagory("Tragedy");
 		ArrayList<ApprovedStory> Romantic = approvedStoryRepo.findStoryOfCatagory("Romantic");
 		ModelAndView mv = new ModelAndView("index");
 		mv.addObject("Drama",Drama);
 		mv.addObject("Comedy",Comedy);
 		mv.addObject("Sci_fi",Sci_fi);
 		mv.addObject("Horror",Horror);
-		mv.addObject("Tradegy",Tradegy);
+		mv.addObject("Tragedy",Tragedy);
 		mv.addObject("Drama",Drama);
 		mv.addObject("Romantic",Romantic);
 		session.setAttribute("stories", stories);

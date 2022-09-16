@@ -180,19 +180,19 @@
 
             <div class="post-entry-1 border-bottom">
               <div class="post-meta"><span class="date">Drama</span> <span class="mx-1">&bullet;</span> <span th:text="${Drama.get(1).getPublish_Date()}"></span></div>
-              <h2 class="mb-2"><a  th:text="${Drama.get(1).getStory_desc()}">Life Insurance And Pregnancy: A Working Mom's Guide</a></h2>
+              <h2 class="mb-2"><a href="#" th:text="${Drama.get(1).getStory_desc()}"></a></h2>
               
             </div>
 
             <div class="post-entry-1 border-bottom">
               <div class="post-meta"><span class="date">Drama</span> <span class="mx-1">&bullet;</span> <span th:text="${Drama.get(2).getPublish_Date()}"> </span></div>
-              <h2 class="mb-2"><a th:text="${Drama.get(2).getStory_desc()}">The Best Homemade Masks for Face (keep the Pimples Away)</a>
+              <h2 class="mb-2"><a href="#" th:text="${Drama.get(2).getStory_desc()}">The Best Homemade Masks for Face (keep the Pimples Away)</a>
            
             </div>
 
             <div class="post-entry-1 border-bottom">
               <div class="post-meta"><span class="date">Drama</span> <span class="mx-1">&bullet;</span> <span th:text="${Drama.get(3).getPublish_Date()}"> </span></div>
-              <h2 class="mb-2"><a th:text="${Drama.get(3).getStory_desc()}">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
+              <h2 class="mb-2"><a href="#" th:text="${Drama.get(3).getStory_desc()}">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
               <span class="author mb-3 d-block">Jenny Wilson</span>
             </div>
           </div>
@@ -317,7 +317,7 @@
         <div class="row g-5">
           <div class="col-lg-4">
             <div class="post-entry-1 lg">
-              <a href="single-post.html"><img src="assets/img/post-landscape-8.jpg" alt="" class="img-fluid"></a>
+              <a href="single-post.html"><img th:src="${Horror.get(1).getImg_link()}" alt="" class="img-fluid"></a>
               <div class="post-meta"><span class="date">Horror</span> <span class="mx-1">&bullet;</span> <span th:text="${Horror.get(2).getPublish_Date()}"></span></div>
               <h2><a th:text="${Horror.get(2).getStory_desc()}">11 Work From Home Part-Time Jobs You Can Do Now</a></h2>
               <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus
@@ -337,39 +337,27 @@
              <!--  <span class="author mb-3 d-block">Jenny Wilson</span> -->
             </div>
 
-            <div class="post-entry-1">
-              <div class="post-meta"><span class="date">Horror</span> <span class="mx-1">&bullet;</span> <span th:text="${Horror.get(2).getPublish_Date()}"></span></div>
-              <h2 class="mb-2"><a th:text="${Horror.get(2).getPublish_Date()}">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
-              <!-- <span class="author mb-3 d-block">Jenny Wilson</span> -->
-            </div>
-
+         
           </div>
 
           <div class="col-lg-8">
             <div class="row g-5">
               <div class="col-lg-4 border-start custom-border">
                 <div class="post-entry-1">
-                  <a href="single-post.html"><img th:src="${Horror.get(3).getImg_link()}" alt="" class="img-fluid"></a>
+                  <a href="single-post.html"><img th:src="${Horror.get(2).getImg_link()}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">Horror</span> <span class="mx-1">&bullet;</span>
                     <span th:text="${Horror.get(3).getPublish_Date()}"></span>
                   </div>
                   <h2><a th:text="${Horror.get(3).getStory_desc()}">Let's Get Back to Work, New York</a></h2>
                 </div>
                 <div class="post-entry-1">
-                  <a href="single-post.html"><img th:src="${Horror.get(1).getImg_link()}" alt="" class="img-fluid"></a>
+                  <a href="single-post.html"><img th:src="${Horror.get(3).getImg_link()}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">Horror</span> <span class="mx-1">&bullet;</span>
                     <span th:text="${Horror.get(1).getPublish_Date()}"></span>
                   </div>
                   <h2><a th:text="${Horror.get(1).getStory_desc()}">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
                 </div>
-                <div class="post-entry-1">
-                  <a href="single-post.html"><img th:src="${Horror.get(3).getImg_link()}" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Horror</span> <span class="mx-1">&bullet;</span>
-                    <span th:text="${Horror.get(3).getPublish_Date()}"></span>
-                  </div>
-                  <h2><a th:text="${Horror.get(3).getStory_desc()}">Why Craigslist Tampa Is One of The Most Interesting Places On the
-                      Web?</a></h2>
-                </div>
+             
               </div>
               <div class="col-lg-4 border-start custom-border">
                 <div class="post-entry-1">
@@ -380,19 +368,19 @@
                   <h2><a th:text="${Horror.get(3).getStory_desc()}">6 Easy Steps To Create Your Own Cute Merch For Instagram</a></h2>
                 </div>
                 <div class="post-entry-1">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-2.jpg" alt="" class="img-fluid"></a>
+                  <a href="single-post.html"><img th:src="${Horror.get(2).getImg_link()}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">Horror</span> <span class="mx-1">&bullet;</span>
                     <span th:text="${Horror.get(2).getPublish_Date()}"></span>
                   </div>
                   <h2><a th:text="${Horror.get(2).getStory_desc()}">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
                 </div>
-                <div class="post-entry-1">
+              <!--   <div class="post-entry-1">
                   <a href="single-post.html"><img th:src="${Horror.get(2).getImg_link()}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">Horror</span> <span class="mx-1">&bullet;</span>
                     <span th:text="${Horror.get(3).getPublish_Date()}"></span>
                   </div>
                   <h2><a th:text="${Horror.get(3).getStory_desc()}">5 Great Startup Tips for Female Founders</a></h2>
-                </div>
+                </div> -->
               </div>
               <div class="col-lg-4">
 
@@ -472,37 +460,19 @@
         <div class="row g-5">
           <div class="col-lg-4">
             <div class="post-entry-1 lg">
-              <a href="single-post.html"><img src="assets/img/post-landscape-8.jpg" alt="" class="img-fluid"></a>
-              <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul
-                  5th '22</span></div>
-              <h2><a href="single-post.html">11 Work From Home Part-Time Jobs You Can Do Now</a></h2>
+              <a href="single-post.html"><img th:src="${Tragedy.get(0).getImg_link()}" alt="" class="img-fluid"></a>
+              <div class="post-meta"><span class="date">Tragedy</span> <span class="mx-1">&bullet;</span> <span th:text="${Tragedy.get(0).getPublish_Date()}"></span></div>
+              <h2><a href="#" th:text="${Tragedy.get(0).getStory_desc()}">11 Work From Home Part-Time Jobs You Can Do Now</a></h2>
               <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus
                 repudiandae, inventore pariatur numquam cumque possimus exercitationem? Nihil tempore odit ab minus
                 eveniet praesentium, similique blanditiis molestiae ut saepe perspiciatis officia nemo, eos quae cumque.
                 Accusamus fugiat architecto rerum animi atque eveniet, quo, praesentium dignissimos</p>
 
-              <div class="d-flex align-items-center author">
-                <div class="photo"><img src="assets/img/person-7.jpg" alt="" class="img-fluid"></div>
-                <div class="name">
-                  <h3 class="m-0 p-0">Esther Howard</h3>
-                </div>
-              </div>
+            
             </div>
 
-            <div class="post-entry-1 border-bottom">
-              <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul
-                  5th '22</span></div>
-              <h2 class="mb-2"><a href="single-post.html">The Best Homemade Masks for Face (keep the Pimples Away)</a>
-              </h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
-            </div>
+          
 
-            <div class="post-entry-1">
-              <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul
-                  5th '22</span></div>
-              <h2 class="mb-2"><a href="single-post.html">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
-            </div>
 
           </div>
 
@@ -510,106 +480,67 @@
             <div class="row g-5">
               <div class="col-lg-4 border-start custom-border">
                 <div class="post-entry-1">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-6.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Jul 5th '22</span>
+                  <a href="single-post.html"><img th:src="${Tragedy.get(2).getImg_link()}" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Tragedy</span> <span class="mx-1">&bullet;</span>
+                    <span th:text="${Tragedy.get(2).getPublish_Date()}">Jul 5th '22</span>
                   </div>
-                  <h2><a href="single-post.html">Let's Get Back to Work, New York</a></h2>
+                  <h2><a href="single-post.html" th:text="${Tragedy.get(2).getStory_desc()}">Let's Get Back to Work, New York</a></h2>
                 </div>
                 <div class="post-entry-1">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-5.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Jul 17th '22</span>
+                  <a href="single-post.html"><img th:src="${Tragedy.get(3).getImg_link()}" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Tragedy</span> <span class="mx-1">&bullet;</span>
+                    <span th:text="${Tragedy.get(3).getPublish_Date()}">Jul 17th '22</span>
                   </div>
-                  <h2><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
+                  <h2><a href="single-post.html" th:text="${Tragedy.get(3).getStory_desc()}">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
                 </div>
-                <div class="post-entry-1">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-4.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Mar 15th '22</span>
-                  </div>
-                  <h2><a href="single-post.html">Why Craigslist Tampa Is One of The Most Interesting Places On the
-                      Web?</a></h2>
-                </div>
+                
               </div>
               <div class="col-lg-4 border-start custom-border">
                 <div class="post-entry-1">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-3.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Jul 5th '22</span>
+                  <a href="single-post.html"><img th:src="${Tragedy.get(1).getImg_link()}" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Tragedy</span> <span class="mx-1">&bullet;</span>
+                    <span th:text="${Tragedy.get(1).getPublish_Date()}">Jul 5th '22</span>
                   </div>
-                  <h2><a href="single-post.html">6 Easy Steps To Create Your Own Cute Merch For Instagram</a></h2>
+                  <h2><a href="single-post.html"  th:text="${Tragedy.get(1).getStory_desc()}">6 Easy Steps To Create Your Own Cute Merch For Instagram</a></h2>
                 </div>
                 <div class="post-entry-1">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-2.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Mar 1st '22</span>
+                  <a href="single-post.html"><img th:src="${Tragedy.get(2).getImg_link()}"  alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Tradegy</span> <span class="mx-1">&bullet;</span>
+                    <span th:text="${Tragedy.get(2).getPublish_Date()}">Mar 1st '22</span>
                   </div>
-                  <h2><a href="single-post.html">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
+                  <h2><a href="single-post.html"  th:text="${Tragedy.get(2).getStory_desc()}">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
                 </div>
-                <div class="post-entry-1">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-1.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Jul 5th '22</span>
-                  </div>
-                  <h2><a href="single-post.html">5 Great Startup Tips for Female Founders</a></h2>
-                </div>
+               
               </div>
               <div class="col-lg-4">
 
                 <div class="post-entry-1 border-bottom">
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Jul 5th '22</span>
+                  <div class="post-meta"><span class="date">Tragedy</span> <span class="mx-1">&bullet;</span>
+                    <span th:text="${Tragedy.get(3).getPublish_Date()}">Jul 5th '22</span>
                   </div>
-                  <h2 class="mb-2"><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video
+                  <h2 class="mb-2"><a href="single-post.html"  th:text="${Tragedy.get(3).getStory_desc()}">How to Avoid Distraction and Stay Focused During Video
                       Calls?</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                   
                 </div>
 
                 <div class="post-entry-1 border-bottom">
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Jul 5th '22</span>
+                  <div class="post-meta"><span class="date">Tradegy</span> <span class="mx-1">&bullet;</span>
+                    <span th:text="${Tragedy.get(1).getPublish_Date()}">Jul 5th '22</span>
                   </div>
-                  <h2 class="mb-2"><a href="single-post.html">17 Pictures of Medium Length Hair in Layers That Will
+                  <h2 class="mb-2"><a href="single-post.html"  th:text="${Tragedy.get(1).getStory_desc()}">17 Pictures of Medium Length Hair in Layers That Will
                       Inspire Your New Haircut</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                  
                 </div>
 
                 <div class="post-entry-1 border-bottom">
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Jul 5th '22</span>
+                  <div class="post-meta"><span class="date">Tragedy</span> <span class="mx-1">&bullet;</span>
+                    <span th:text="${Tragedy.get(2).getPublish_Date()}">Jul 5th '22</span>
                   </div>
-                  <h2 class="mb-2"><a href="single-post.html">9 Half-up/half-down Hairstyles for Long and Medium
+                  <h2 class="mb-2"><a href="single-post.html"  th:text="${Tragedy.get(2).getStory_desc()}">9 Half-up/half-down Hairstyles for Long and Medium
                       Hair</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                 
                 </div>
 
-                <div class="post-entry-1 border-bottom">
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Jul 5th '22</span>
-                  </div>
-                  <h2 class="mb-2"><a href="single-post.html">Life Insurance And Pregnancy: A Working Mom's Guide</a>
-                  </h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
-                </div>
-
-                <div class="post-entry-1 border-bottom">
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Jul 5th '22</span>
-                  </div>
-                  <h2 class="mb-2"><a href="single-post.html">The Best Homemade Masks for Face (keep the Pimples
-                      Away)</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
-                </div>
-
-                <div class="post-entry-1 border-bottom">
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Jul 5th '22</span>
-                  </div>
-                  <h2 class="mb-2"><a href="single-post.html">10 Life-Changing Hacks Every Working Mom Should Know</a>
-                  </h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
-                </div>
 
               </div>
             </div>
@@ -621,49 +552,32 @@
     
     <!-- End Tradegy Category Section -->
     
-    <!-- start Sci-fi Category Section -->
+    <!-- start Romantic Category Section -->
         <section class="category-section">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header d-flex justify-content-between align-items-center mb-5">
-          <h2>Sci-fi</h2>
+          <h2>Romantic</h2>
           <div><a href="category.html" class="more">See All Lifestyle</a></div>
         </div>
 
         <div class="row g-5">
           <div class="col-lg-4">
             <div class="post-entry-1 lg">
-              <a href="single-post.html"><img src="assets/img/post-landscape-8.jpg" alt="" class="img-fluid"></a>
-              <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul
+              <a href="single-post.html"><img th:src="${Romantic.get(1).getImg_link()}"  alt="" class="img-fluid"></a>
+              <div class="post-meta"><span class="date">Romantic</span> <span class="mx-1">&bullet;</span> <span th:text="${Romantic.get(1).getPublish_Date()}">Jul
                   5th '22</span></div>
-              <h2><a href="single-post.html">11 Work From Home Part-Time Jobs You Can Do Now</a></h2>
+              <h2><a href="single-post.html"  th:text="${Romantic.get(1).getStory_desc()}">11 Work From Home Part-Time Jobs You Can Do Now</a></h2>
               <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus
                 repudiandae, inventore pariatur numquam cumque possimus exercitationem? Nihil tempore odit ab minus
                 eveniet praesentium, similique blanditiis molestiae ut saepe perspiciatis officia nemo, eos quae cumque.
                 Accusamus fugiat architecto rerum animi atque eveniet, quo, praesentium dignissimos</p>
 
-              <div class="d-flex align-items-center author">
-                <div class="photo"><img src="assets/img/person-7.jpg" alt="" class="img-fluid"></div>
-                <div class="name">
-                  <h3 class="m-0 p-0">Esther Howard</h3>
-                </div>
-              </div>
+            
             </div>
 
-            <div class="post-entry-1 border-bottom">
-              <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul
-                  5th '22</span></div>
-              <h2 class="mb-2"><a href="single-post.html">The Best Homemade Masks for Face (keep the Pimples Away)</a>
-              </h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
-            </div>
+          
 
-            <div class="post-entry-1">
-              <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul
-                  5th '22</span></div>
-              <h2 class="mb-2"><a href="single-post.html">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
-            </div>
 
           </div>
 
@@ -671,106 +585,67 @@
             <div class="row g-5">
               <div class="col-lg-4 border-start custom-border">
                 <div class="post-entry-1">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-6.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Jul 5th '22</span>
+                  <a href="single-post.html"><img th:src="${Romantic.get(2).getImg_link()}" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Romantic</span> <span class="mx-1">&bullet;</span>
+                    <span th:text="${Romantic.get(2).getPublish_Date()}">Jul 5th '22</span>
                   </div>
-                  <h2><a href="single-post.html">Let's Get Back to Work, New York</a></h2>
+                  <h2><a href="single-post.html"  th:text="${Romantic.get(2).getStory_desc()}">Let's Get Back to Work, New York</a></h2>
                 </div>
                 <div class="post-entry-1">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-5.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Jul 17th '22</span>
+                  <a href="single-post.html"><img th:src="${Romantic.get(1).getImg_link()}" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Romantic</span> <span class="mx-1">&bullet;</span>
+                    <span th:text="${Romantic.get(1).getPublish_Date()}">Jul 17th '22</span>
                   </div>
-                  <h2><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
+                  <h2><a href="single-post.html"  th:text="${Romantic.get(1).getStory_desc()}">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
                 </div>
-                <div class="post-entry-1">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-4.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Mar 15th '22</span>
-                  </div>
-                  <h2><a href="single-post.html">Why Craigslist Tampa Is One of The Most Interesting Places On the
-                      Web?</a></h2>
-                </div>
+                
               </div>
               <div class="col-lg-4 border-start custom-border">
                 <div class="post-entry-1">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-3.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Jul 5th '22</span>
+                  <a href="single-post.html"><img th:src="${Romantic.get(2).getImg_link()}" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Romantic</span> <span class="mx-1">&bullet;</span>
+                    <span th:text="${Romantic.get(2).getPublish_Date()}">Jul 5th '22</span>
                   </div>
-                  <h2><a href="single-post.html">6 Easy Steps To Create Your Own Cute Merch For Instagram</a></h2>
+                  <h2><a href="single-post.html" th:text="${Romantic.get(2).getStory_desc()}">6 Easy Steps To Create Your Own Cute Merch For Instagram</a></h2>
                 </div>
                 <div class="post-entry-1">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-2.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Mar 1st '22</span>
+                  <a href="single-post.html"><img th:src="${Romantic.get(1).getImg_link()}" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Romantic</span> <span class="mx-1">&bullet;</span>
+                    <span th:text="${Romantic.get(1).getPublish_Date()}">Mar 1st '22</span>
                   </div>
-                  <h2><a href="single-post.html">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
+                  <h2><a href="single-post.html" th:text="${Romantic.get(1).getStory_desc()}">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
                 </div>
-                <div class="post-entry-1">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-1.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Jul 5th '22</span>
-                  </div>
-                  <h2><a href="single-post.html">5 Great Startup Tips for Female Founders</a></h2>
-                </div>
+               
               </div>
               <div class="col-lg-4">
 
                 <div class="post-entry-1 border-bottom">
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Jul 5th '22</span>
+                  <div class="post-meta"><span class="date">Romantic</span> <span class="mx-1">&bullet;</span>
+                    <span th:text="${Romantic.get(1).getPublish_Date()}">Jul 5th '22</span>
                   </div>
-                  <h2 class="mb-2"><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video
+                  <h2 class="mb-2"><a href="single-post.html" th:text="${Romantic.get(1).getStory_desc()}">How to Avoid Distraction and Stay Focused During Video
                       Calls?</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                  
                 </div>
 
                 <div class="post-entry-1 border-bottom">
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Jul 5th '22</span>
+                  <div class="post-meta"><span class="date">Romantic</span> <span class="mx-1">&bullet;</span>
+                    <span th:text="${Romantic.get(2).getPublish_Date()}">Jul 5th '22</span>
                   </div>
-                  <h2 class="mb-2"><a href="single-post.html">17 Pictures of Medium Length Hair in Layers That Will
+                  <h2 class="mb-2"><a href="single-post.html" th:text="${Romantic.get(2).getStory_desc()}">17 Pictures of Medium Length Hair in Layers That Will
                       Inspire Your New Haircut</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                 
                 </div>
 
                 <div class="post-entry-1 border-bottom">
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Jul 5th '22</span>
+                  <div class="post-meta"><span class="date">Romantic</span> <span class="mx-1">&bullet;</span>
+                    <span th:text="${Romantic.get(2).getPublish_Date()}">Jul 5th '22</span>
                   </div>
-                  <h2 class="mb-2"><a href="single-post.html">9 Half-up/half-down Hairstyles for Long and Medium
+                  <h2 class="mb-2"><a href="single-post.html" th:text="${Romantic.get(2).getStory_desc()}">9 Half-up/half-down Hairstyles for Long and Medium
                       Hair</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
+               
                 </div>
 
-                <div class="post-entry-1 border-bottom">
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Jul 5th '22</span>
-                  </div>
-                  <h2 class="mb-2"><a href="single-post.html">Life Insurance And Pregnancy: A Working Mom's Guide</a>
-                  </h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
-                </div>
-
-                <div class="post-entry-1 border-bottom">
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Jul 5th '22</span>
-                  </div>
-                  <h2 class="mb-2"><a href="single-post.html">The Best Homemade Masks for Face (keep the Pimples
-                      Away)</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
-                </div>
-
-                <div class="post-entry-1 border-bottom">
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Jul 5th '22</span>
-                  </div>
-                  <h2 class="mb-2"><a href="single-post.html">10 Life-Changing Hacks Every Working Mom Should Know</a>
-                  </h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
-                </div>
 
               </div>
             </div>
@@ -787,7 +662,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-header d-flex justify-content-between align-items-center mb-5">
-          <h2>Romantic</h2>
+          <h2>Tradegy</h2>
           <div><a href="category.html" class="more">See All Lifestyle</a></div>
         </div>
 
@@ -803,28 +678,11 @@
                 eveniet praesentium, similique blanditiis molestiae ut saepe perspiciatis officia nemo, eos quae cumque.
                 Accusamus fugiat architecto rerum animi atque eveniet, quo, praesentium dignissimos</p>
 
-              <div class="d-flex align-items-center author">
-                <div class="photo"><img src="assets/img/person-7.jpg" alt="" class="img-fluid"></div>
-                <div class="name">
-                  <h3 class="m-0 p-0">Esther Howard</h3>
-                </div>
-              </div>
+            
             </div>
 
-            <div class="post-entry-1 border-bottom">
-              <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul
-                  5th '22</span></div>
-              <h2 class="mb-2"><a href="single-post.html">The Best Homemade Masks for Face (keep the Pimples Away)</a>
-              </h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
-            </div>
+          
 
-            <div class="post-entry-1">
-              <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul
-                  5th '22</span></div>
-              <h2 class="mb-2"><a href="single-post.html">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
-            </div>
 
           </div>
 
@@ -845,14 +703,7 @@
                   </div>
                   <h2><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
                 </div>
-                <div class="post-entry-1">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-4.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Mar 15th '22</span>
-                  </div>
-                  <h2><a href="single-post.html">Why Craigslist Tampa Is One of The Most Interesting Places On the
-                      Web?</a></h2>
-                </div>
+                
               </div>
               <div class="col-lg-4 border-start custom-border">
                 <div class="post-entry-1">
@@ -869,13 +720,7 @@
                   </div>
                   <h2><a href="single-post.html">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
                 </div>
-                <div class="post-entry-1">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-1.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Jul 5th '22</span>
-                  </div>
-                  <h2><a href="single-post.html">5 Great Startup Tips for Female Founders</a></h2>
-                </div>
+               
               </div>
               <div class="col-lg-4">
 
@@ -906,32 +751,6 @@
                   <span class="author mb-3 d-block">Jenny Wilson</span>
                 </div>
 
-                <div class="post-entry-1 border-bottom">
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Jul 5th '22</span>
-                  </div>
-                  <h2 class="mb-2"><a href="single-post.html">Life Insurance And Pregnancy: A Working Mom's Guide</a>
-                  </h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
-                </div>
-
-                <div class="post-entry-1 border-bottom">
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Jul 5th '22</span>
-                  </div>
-                  <h2 class="mb-2"><a href="single-post.html">The Best Homemade Masks for Face (keep the Pimples
-                      Away)</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
-                </div>
-
-                <div class="post-entry-1 border-bottom">
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span>
-                    <span>Jul 5th '22</span>
-                  </div>
-                  <h2 class="mb-2"><a href="single-post.html">10 Life-Changing Hacks Every Working Mom Should Know</a>
-                  </h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
-                </div>
 
               </div>
             </div>
