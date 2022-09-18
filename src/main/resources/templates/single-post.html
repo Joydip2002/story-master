@@ -53,14 +53,15 @@
             <div class="single-post">
               <div class="post-meta"><span class="date" th:text="${storyInfo.getStory_category()}"></span> <span class="mx-1">&bullet;</span> <span th:text="${storyInfo.getPublish_Date()}"></span></div>
               <h1 class="mb-5" th:text="${storyInfo.getStory_name()}"></h1>
-              
-              <figure class="my-4 mx-auto">
               <center>
-                <img th:src="@{${storyInfo.getImg_link()}}" alt="" class="img-fluid img-thumbnail" />
-                </center>
+              <figure class="my-4 mx-auto">
+              
+                <img th:src="@{${storyInfo.getImg_link()}}" alt="" class="img-fluid img-thumbnail" style="width: 250px;"/>
+                
               </figure>
+              </center>
               <p >
-             	 <div th:text="${storyFile}" style="border: 1px solid black;" class="p-2"></div>
+             	 <div th:text="${storyFile}" style="border: 1px solid black; color: black; font-size: 20px; word-spacing: 5px; font-family: sans-serif;" class="p-5"></div>
              </p>  
               
 

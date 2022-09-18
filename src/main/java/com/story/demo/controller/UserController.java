@@ -32,15 +32,25 @@ public class UserController {
 	
 	String checkForRedirectPost="";
   
+	
+	ArrayList<ApprovedStory> stories;
+	ArrayList<ApprovedStory> Drama;
+	ArrayList<ApprovedStory> Comedy;
+	ArrayList<ApprovedStory> Sci_fi;
+	ArrayList<ApprovedStory> Horror;
+	ArrayList<ApprovedStory> Tragedy;
+	ArrayList<ApprovedStory> Romantic;
+	
+	
 	@RequestMapping("/")
 	public ModelAndView myHome(HttpSession session) {
-		ArrayList<ApprovedStory> stories=approvedStoryRepo.findAllOrderByView();
-		ArrayList<ApprovedStory> Drama = approvedStoryRepo.findStoryOfCatagory("Drama");
-		ArrayList<ApprovedStory> Comedy = approvedStoryRepo.findStoryOfCatagory("Comedy");
-		ArrayList<ApprovedStory> Sci_fi = approvedStoryRepo.findStoryOfCatagory("Sci-fi");
-		ArrayList<ApprovedStory> Horror = approvedStoryRepo.findStoryOfCatagory("Horror");
-		ArrayList<ApprovedStory> Tragedy = approvedStoryRepo.findStoryOfCatagory("Tragedy");
-		ArrayList<ApprovedStory> Romantic = approvedStoryRepo.findStoryOfCatagory("Romantic");
+		stories=approvedStoryRepo.findAllOrderByView();
+		Drama = approvedStoryRepo.findStoryOfCatagory("Drama");
+		Comedy = approvedStoryRepo.findStoryOfCatagory("Comedy");
+		Sci_fi = approvedStoryRepo.findStoryOfCatagory("Sci-fi");
+		Horror = approvedStoryRepo.findStoryOfCatagory("Horror");
+		Tragedy = approvedStoryRepo.findStoryOfCatagory("Tragedy");
+		Romantic = approvedStoryRepo.findStoryOfCatagory("Romantic");
 		ModelAndView mv = new ModelAndView("index");
 		mv.addObject("Drama",Drama);
 		mv.addObject("Comedy",Comedy);
@@ -60,6 +70,7 @@ public class UserController {
 		if(session.getAttribute("usermsg")!=null) {
 			String storyFile=storyAction.getStory(author_id, story_id);
 			if(storyFile=="") {
+				System.err.println("file empty");
 				ModelAndView modelAndView=new ModelAndView("404");
 				return modelAndView;
 			}
@@ -76,6 +87,21 @@ public class UserController {
 			ModelAndView modelAndView=new ModelAndView("login");
 			checkForRedirectPost="story-"+author_id+"-"+story_id;
 			return modelAndView;
+		}
+	}
+	
+	
+	@RequestMapping("/category/{catego}")
+	public ModelAndView category(@PathVariable String catego,HttpSession session) {
+		if(session.getAttribute("usermsg") != null) {
+			ModelAndView modelAndView=new ModelAndView("category");
+			ArrayList<ApprovedStory> story=approvedStoryRepo.findStoryOfCatagory(catego);;
+			modelAndView.addObject("category", story);
+			return modelAndView;
+		}
+		else {
+			checkForRedirectPost="category/"+catego;
+			return new ModelAndView("redirect:/userLogin");
 		}
 	}
 	

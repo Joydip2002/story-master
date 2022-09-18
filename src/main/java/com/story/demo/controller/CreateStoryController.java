@@ -72,7 +72,7 @@ public class CreateStoryController {
 		//Save data in database
 		createStoryService.saveStory(info);		
 		//Session
-		session.setAttribute("createStoryMsg", "Your Story is Successfully Added..");
+//		session.setAttribute("createStoryMsg", "Your Story is Successfully Added..");
 		session.setAttribute("storyInfo", info);
 		return "redirect:/writestory";
 	}
@@ -99,6 +99,7 @@ public class CreateStoryController {
 		if(session.getAttribute("writerDetailsMassage")!=null) {
 			if(flagForEditOrCreate==1) {
 				writeract.writeStory(sto, sid, aid);
+				session.setAttribute("storyInfo", null);
 			}
 			else {
 				CreateStoryModel story=(CreateStoryModel) session.getAttribute("storyInfo");
