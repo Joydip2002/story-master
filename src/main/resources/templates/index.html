@@ -32,8 +32,6 @@
   <link href="assets/css/main.css" rel="stylesheet">
 
 
-
-
 </head>
 
 
@@ -298,7 +296,7 @@
 
           <div class="col-lg-8">
             <div class="row g-5">
-              <div class="col-lg-6 border-start custom-border">
+              <div class="col-lg-4 border-start custom-border">
                 <div class="post-entry-1">
                    <a th:href="@{/story-}+${Horror.get(1).getAuthor_id()}+@{-}+${Horror.get(1).getStory_id()}">
               <img th:src="${Horror.get(1).getImg_link()}"  alt="" class="img-fluid">
@@ -311,21 +309,10 @@
               <p class="mb-4 d-block" th:text="${Horror.get(1).getStory_desc()}"></p>
 			</a>    
                 </div>
-                <div class="post-entry-1">
-                  <a th:href="@{/story-}+${Horror.get(2).getAuthor_id()}+@{-}+${Horror.get(2).getStory_id()}">
-              <img th:src="${Horror.get(2).getImg_link()}"  alt="" class="img-fluid">
-              <div class="post-meta">
-              <span class="date">Horror</span> 
-              <span class="mx-1">&bullet;</span>
-               <span th:text="${Horror.get(2).getPublish_Date()}"></span>
-               </div>
-              <h2 th:text="${Horror.get(2).getStory_name()}"></h2>
-              <p class="mb-4 d-block" th:text="${Horror.get(2).getStory_desc()}"></p>
-			</a>    
-                </div>
+               
              
               </div>
-              <div class="col-lg-6 border-start custom-border">
+              <div class="col-lg-4 border-start custom-border">
                 <div class="post-entry-1">
                   <a th:href="@{/story-}+${Horror.get(3).getAuthor_id()}+@{-}+${Horror.get(3).getStory_id()}">
               <img th:src="${Horror.get(3).getImg_link()}"  alt="" class="img-fluid">
@@ -337,20 +324,22 @@
               <h2 th:text="${Horror.get(3).getStory_name()}"></h2>
               <p class="mb-4 d-block" th:text="${Horror.get(3).getStory_desc()}"></p>
 			</a>    
-                </div>
-                <div class="post-entry-1">
-                   <a th:href="@{/story-}+${Horror.get(4).getAuthor_id()}+@{-}+${Horror.get(4).getStory_id()}">
-              <img th:src="${Horror.get(4).getImg_link()}"  alt="" class="img-fluid">
+                </div>  
+              </div>
+               <div class="col-lg-4 border-start custom-border">
+               <div class="post-entry-1">
+                  <a th:href="@{/story-}+${Horror.get(2).getAuthor_id()}+@{-}+${Horror.get(2).getStory_id()}">
+              <img th:src="${Horror.get(2).getImg_link()}"  alt="" class="img-fluid">
               <div class="post-meta">
               <span class="date">Horror</span> 
               <span class="mx-1">&bullet;</span>
-               <span th:text="${Horror.get(4).getPublish_Date()}"></span>
+               <span th:text="${Horror.get(2).getPublish_Date()}"></span>
                </div>
-              <h2 th:text="${Horror.get(4).getStory_name()}"></h2>
-              <p class="mb-4 d-block" th:text="${Horror.get(4).getStory_desc()}"></p>
+              <h2 th:text="${Horror.get(2).getStory_name()}"></h2>
+              <p class="mb-4 d-block" th:text="${Horror.get(2).getStory_desc()}"></p>
 			</a>    
                 </div>
-              </div>
+                </div>
              
             </div>
           </div>
@@ -421,20 +410,7 @@
               <h2 th:text="${Tragedy.get(3).getStory_name()}"></h2>
               <p class="mb-4 d-block" th:text="${Tragedy.get(3).getStory_desc()}"></p>
 			</a>    
-                </div>
-                <div class="post-entry-1">
-                  <a th:href="@{/story-}+${Tragedy.get(4).getAuthor_id()}+@{-}+${Tragedy.get(4).getStory_id()}">
-              <img th:src="${Tragedy.get(4).getImg_link()}"  alt="" class="img-fluid">
-              <div class="post-meta">
-              <span class="date">Tragedy</span> 
-              <span class="mx-1">&bullet;</span>
-               <span th:text="${Tragedy.get(4).getPublish_Date()}"></span>
-               </div>
-              <h2 th:text="${Tragedy.get(4).getStory_name()}"></h2>
-              <p class="mb-4 d-block" th:text="${Tragedy.get(4).getStory_desc()}"></p>
-			</a>    
-                </div>
-               
+                </div>               
               </div>
               <div class="col-lg-4 border-start custom-border">
                <div class="post-entry-1">
@@ -492,7 +468,7 @@
 
           <div class="col-lg-8">
             <div class="row g-5">
-              <div class="col-lg-6 border-start custom-border">
+              <div class="col-lg-4 border-start custom-border">
                 <div class="post-entry-1">
                    <a th:href="@{/story-}+${Romantic.get(1).getAuthor_id()}+@{-}+${Romantic.get(1).getStory_id()}">
               <img th:src="${Romantic.get(1).getImg_link()}"  alt="" class="img-fluid">
@@ -504,34 +480,9 @@
               <h2 th:text="${Romantic.get(1).getStory_name()}"></h2>
               <p class="mb-4 d-block" th:text="${Romantic.get(1).getStory_desc()}"></p>
 			</a>
-                </div>
-                <div class="post-entry-1">
-                   <a th:href="@{/story-}+${Romantic.get(2).getAuthor_id()}+@{-}+${Romantic.get(2).getStory_id()}">
-              <img th:src="${Romantic.get(2).getImg_link()}"  alt="" class="img-fluid">
-              <div class="post-meta">
-              <span class="date">Romantic</span> 
-              <span class="mx-1">&bullet;</span>
-               <span th:text="${Romantic.get(2).getPublish_Date()}"></span>
-               </div>
-              <h2 th:text="${Romantic.get(2).getStory_name()}"></h2>
-              <p class="mb-4 d-block" th:text="${Romantic.get(2).getStory_desc()}"></p>
-			</a>
-                </div>
-                
+                </div>                
               </div>
-              <div class="col-lg-6 border-start custom-border">
-                <div class="post-entry-1">
-                   <a th:href="@{/story-}+${Romantic.get(4).getAuthor_id()}+@{-}+${Romantic.get(4).getStory_id()}">
-              <img th:src="${Romantic.get(4).getImg_link()}"  alt="" class="img-fluid">
-              <div class="post-meta">
-              <span class="date">Romantic</span> 
-              <span class="mx-1">&bullet;</span>
-               <span th:text="${Romantic.get(4).getPublish_Date()}"></span>
-               </div>
-              <h2 th:text="${Romantic.get(4).getStory_name()}"></h2>
-              <p class="mb-4 d-block" th:text="${Romantic.get(4).getStory_desc()}"></p>
-			</a>
-                </div>
+              <div class="col-lg-4 border-start custom-border">
                 <div class="post-entry-1">
                    <a th:href="@{/story-}+${Romantic.get(3).getAuthor_id()}+@{-}+${Romantic.get(3).getStory_id()}">
               <img th:src="${Romantic.get(3).getImg_link()}"  alt="" class="img-fluid">
@@ -543,9 +494,23 @@
               <h2 th:text="${Romantic.get(3).getStory_name()}"></h2>
               <p class="mb-4 d-block" th:text="${Romantic.get(3).getStory_desc()}"></p>
 			</a>
-                </div>
-               
+                </div>               
               </div>
+              
+               <div class="col-lg-4 border-start custom-border">
+               <div class="post-entry-1">
+                   <a th:href="@{/story-}+${Romantic.get(2).getAuthor_id()}+@{-}+${Romantic.get(2).getStory_id()}">
+              <img th:src="${Romantic.get(2).getImg_link()}"  alt="" class="img-fluid">
+              <div class="post-meta">
+              <span class="date">Romantic</span> 
+              <span class="mx-1">&bullet;</span>
+               <span th:text="${Romantic.get(2).getPublish_Date()}"></span>
+               </div>
+              <h2 th:text="${Romantic.get(2).getStory_name()}"></h2>
+              <p class="mb-4 d-block" th:text="${Romantic.get(2).getStory_desc()}"></p>
+			</a>
+                </div>
+               </div>
               
             </div>
           </div>

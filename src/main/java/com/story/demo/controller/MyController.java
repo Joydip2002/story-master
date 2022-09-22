@@ -1,6 +1,10 @@
 package com.story.demo.controller;
 
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpSession;
@@ -10,6 +14,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.story.demo.logic.WriterAction;
@@ -22,6 +28,8 @@ import com.story.demo.services.GoodStoryServices;
 public class MyController {
 	
 //	Autowired GoodStoryService  
+	
+	WriterModel obj;
 	
 	@Autowired
 	GoodStoryServices services;
@@ -86,7 +94,7 @@ public class MyController {
 		}
 		else {
 			System.out.println("Login Sucessfull..");
-			WriterModel obj = services.checkEmailPass(email, password);
+			obj = services.checkEmailPass(email, password);
 			session.setAttribute("writerDetailsMassage", obj);
 			return "redirect:/WriterDash";
 		}
@@ -158,14 +166,38 @@ public class MyController {
 	
 	
 	@RequestMapping("/writerprofile")
-	public String writerprofile(HttpSession session) {
+	public ModelAndView writerprofile(HttpSession session) {
 		if(session.getAttribute("writerDetailsMassage") != null) {
-			return "writerprofile";
+			String folder="D:\\SpringBoot\\story\\story-master\\src\\main\\resources\\static\\writerimage\\";
+			String img="/writerimage/";
+			Path path = Paths.get(folder+obj.getId()+".jpeg");
+			if(Files.exists(path) && !Files.isDirectory(path)) {
+		      img=img+obj.getId()+".jpeg";
+			}
+			else {
+				img+="avatar7.png";
+			}
+			ModelAndView modelAndView=new ModelAndView("writerprofile");
+			modelAndView.addObject("img", img);
+			return modelAndView;
 		}
 		else {
-			return "redirect:/writerlogin";
+			return new ModelAndView("redirect:/writerlogin");
 		}
 	}
 	
+	 @RequestMapping("/writerImage")
+	 public String userImageChange(@RequestParam("userImg") MultipartFile file,HttpSession session) throws IOException {
+		 if(session.getAttribute("writerDetailsMassage") != null) {
+			 String folder="D:\\SpringBoot\\story\\story-master\\src\\main\\resources\\static\\writerimage\\";
+			 byte[] bytes=file.getBytes();
+			 Path path=Paths.get(folder+obj.getId()+".jpeg");
+			 Files.write(path, bytes);
+			 return "redirect:/writerprofile";
+		 }
+		 else{
+			return "redirect:/writerlogin";
+		 }
+	 }
 	
 }

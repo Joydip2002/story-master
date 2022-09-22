@@ -38,74 +38,7 @@
   <!-- Template Main CSS Files -->
   <link href="assets/css/variables.css" rel="stylesheet">
   <link href="assets/css/main.css" rel="stylesheet">
-	
-</head>
-<body>
- <header th:replace="base.html:: navbar"></header>
-<section class="section about-section white-bg" id="about">
-            <div class="container">
-                <div class="row align-items-center flex-row-reverse">
-                    <div class="col-lg-6">
-                        <div class="about-text go-to">
-                            <h3 class="dark-color">User Profile</h3>
-                            <h6 class="theme-color lead">Lorem ipsum dolor sit amet consectetur</h6>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic magnam consequatur fugiat voluptatem ad minus eveniet voluptate nam ipsa, vero, iure culpa harum pariatur amet assumenda officiis fuga excepturi similique! Lorem ipsum dolor, sit amet consectetur.</p>
-                            <div class="row about-list">
-                                <div class="col-md-6">
-                                    <div class="media">
-                                        <label>Name : </label>
-                                        <p th:if = ${session.usermsg.getUserName()}>
-                                            <div class = "text-center" th:text ="${session.usermsg.getUserName()}"></div>
-                                        </p>
-                                    </div>
-                                    <div class="media">
-                                        <label>Email : </label>
-                                        <p  th:if = ${session.usermsg.getUseremail()}>
-                                         <div class = "text-center" style="font-size:14px" th:text ="${session.usermsg.getUseremail()}"></div>
-                                        </p>
-                                    </div>
-                                    <div class="media">
-                                        <label>Phone : </label>
-                                       <p  th:if = ${session.usermsg.getUsermobile()}>
-                                         <div class = "text-center"  th:text ="${session.usermsg.getUsermobile()}"></div>
-                                        </p>
-                                    </div>
-                                    <div class="media">
-                                       
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                  <div class="media">
-                                    <label>Address:</label>
-                                    <p  th:if = ${session.usermsg.getUseraddress()}>
-                                         <div class = "text-center"   th:text ="${session.usermsg.getUseraddress()}"></div>
-                                        </p>
-                                </div>
-                                <div class="media"></div>
-                                    <div class="media"></div>
-                                    
-                                    <div class="media">
-                                        <label>Password : </label>
-                                       <p  th:if = ${session.usermsg.getUserpassword()}>
-                                         <div class = "text-center"  th:text ="${session.usermsg.getUserpassword()}"></div>
-                                        </p>
-                                    </div>
-                                </div>
-                                <a href="/userLogout"><button button type="button" class="col-md-12 btn btn-outline-secondary" style="border: none;font-size: 25px;">Log Out</button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="about-avatar">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" title="" alt="">
-                        </div>
-                    </div>
-                </div>
-               
-            </div>
-        </section>
-
-<style type="text/css">
+	<style type="text/css">
 body{
     color: #6f7070;
     margin-top:20px;
@@ -233,6 +166,78 @@ mark {
 
 
 </style>
+</head>
+<body>
+ <header th:replace="base.html:: navbar"></header>
+<section class="section about-section white-bg" id="about">
+            <div class="container">
+                <div class="row align-items-center flex-row-reverse">
+                    <div class="col-lg-6">
+                        <div class="about-text go-to">
+                            <h3 class="dark-color">User Profile</h3>
+                            <h6 class="theme-color lead">Lorem ipsum dolor sit amet consectetur</h6>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic magnam consequatur fugiat voluptatem ad minus eveniet voluptate nam ipsa, vero, iure culpa harum pariatur amet assumenda officiis fuga excepturi similique! Lorem ipsum dolor, sit amet consectetur.</p>
+                            <div class="row about-list">
+                                <div class="col-md-6">
+                                    <div class="media">
+                                        <label>Name : </label>
+                                        <p th:if = ${session.usermsg.getUserName()}>
+                                            <div class = "text-center" th:text ="${session.usermsg.getUserName()}"></div>
+                                        </p>
+                                    </div>
+                                    <div class="media">
+                                        <label>Email : </label>
+                                        <p  th:if = ${session.usermsg.getUseremail()}>
+                                         <div class = "text-center" style="font-size:14px" th:text ="${session.usermsg.getUseremail()}"></div>
+                                        </p>
+                                    </div>
+                                    <div class="media">
+                                        <label>Phone : </label>
+                                       <p  th:if = ${session.usermsg.getUsermobile()}>
+                                         <div class = "text-center"  th:text ="${session.usermsg.getUsermobile()}"></div>
+                                        </p>
+                                    </div>
+                                    <div class="media">
+                                       
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="media">
+                                    <label>Address:</label>
+                                    <p  th:if = ${session.usermsg.getUseraddress()}>
+                                         <div class = "text-center"   th:text ="${session.usermsg.getUseraddress()}"></div>
+                                        </p>
+                                </div>
+                                <div class="media"></div>
+                                    <div class="media"></div>
+                                    
+                                    <div class="media">
+                                        <label>Password : </label>
+                                       <p  th:if = ${session.usermsg.getUserpassword()}>
+                                         <div class = "text-center"  th:text ="${session.usermsg.getUserpassword()}"></div>
+                                        </p>
+                                    </div>
+                                </div>
+                                <a href="/userLogout"><button button type="button" class="col-md-12 btn btn-outline-secondary" style="border: none;font-size: 25px;">Log Out</button></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-avatar">
+                        	<img th:src="${img}" title="image" alt="load failed" width="315px"/>
+                           	<form action="/userImage" method="post" enctype="multipart/form-data">
+  								  Choose Your Image: <input type="file" name="userImg" id="image" style="margin-top: 5px;"/>
+  								  <br/>
+  								  <input type="submit" value="upload">  After Submit Refresh The Page To See Update
+						   </form>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+        </section>
+
+
 
 <script type="text/javascript">
 </script>

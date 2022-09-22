@@ -2,7 +2,11 @@ package com.story.demo.controller;
 
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+
 
 import javax.servlet.http.HttpSession;
 
@@ -12,6 +16,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.story.demo.logic.StoryAction;
@@ -32,6 +38,8 @@ public class UserController {
 	
 	String checkForRedirectPost="";
   
+	
+	UserModel obj;
 	
 	ArrayList<ApprovedStory> stories;
 	ArrayList<ApprovedStory> Drama;
@@ -120,7 +128,7 @@ public class UserController {
 		}
 		else {
 			System.out.println("Login Sucessfull..");
-			UserModel obj = userService.checkingEmailPass(useremail, userpassword);
+			obj = userService.checkingEmailPass(useremail, userpassword);
 			session.setAttribute("usermsg", obj);
 			if(checkForRedirectPost=="")
 				return "redirect:/";
@@ -154,13 +162,24 @@ public class UserController {
 	   }
 	 
 	 @RequestMapping("/userprofile")
-		public String userprofile(HttpSession session) {
+		public ModelAndView userprofile(HttpSession session) {
 			if(session.getAttribute("usermsg") != null) {
-				return "userprofile";
+				String folder="D:\\SpringBoot\\story\\story-master\\src\\main\\resources\\static\\userimage\\";
+				String img="/userimage/";
+				Path path = Paths.get(folder+obj.getId()+".jpeg");
+				if(Files.exists(path) && !Files.isDirectory(path)) {
+			      img=img+obj.getId()+".jpeg";
+				}
+				else {
+					img+="avatar7.png";
+				}
+				ModelAndView modelAndView=new ModelAndView("userprofile");
+				modelAndView.addObject("img", img);
+				return modelAndView;
 			}
 			else{
 				checkForRedirectPost="userprofile";
-				return "redirect:/userLogin";
+				return new ModelAndView("redirect:/userLogin");
 			}
 		}
 	 @RequestMapping("/userLogout")
@@ -169,6 +188,20 @@ public class UserController {
 				session.removeAttribute("usermsg");
 		 }
 		 return "redirect:/";	
+	 }
+	 
+	 @RequestMapping("/userImage")
+	 public String userImageChange(@RequestParam("userImg") MultipartFile file,HttpSession session) throws IOException {
+		 if(session.getAttribute("usermsg") != null) {
+			 String folder="D:\\SpringBoot\\story\\story-master\\src\\main\\resources\\static\\userimage\\";
+			 byte[] bytes=file.getBytes();
+			 Path path=Paths.get(folder+obj.getId()+".jpeg");
+			 Files.write(path, bytes);
+			 return "redirect:/userprofile";
+		 }
+		 else{
+			return "redirect:/userLogin";
+		 }
 	 }
 	 
 	 @RequestMapping("/*")
